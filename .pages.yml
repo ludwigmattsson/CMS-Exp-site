@@ -55,7 +55,6 @@ content:
             required: true
             options:
               media: images
-              path: public/media
               extensions: [jpg, jpeg, png, webp]
           - name: primaryAction
             label: Primary button
@@ -120,7 +119,6 @@ content:
             type: image
             options:
               media: images
-              path: public/media
               extensions: [jpg, jpeg, png, webp]
           - name: href
             label: Target URL
@@ -145,7 +143,6 @@ content:
             type: image
             options:
               media: images
-              path: public/media
               extensions: [jpg, jpeg, png, webp]
           - name: href
             label: Target URL
