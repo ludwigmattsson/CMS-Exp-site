@@ -1,6 +1,7 @@
 {
   "order": 1,
   "title": "Show the detail",
+  "domain": "tegel.scania.com",
   "image": "/media/scania-cap-detail.png",
   "href": "https://tegel.scania.com/foundations/design-tokens"
 }

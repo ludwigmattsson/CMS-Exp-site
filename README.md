@@ -56,3 +56,9 @@ Use this flow instead:
 5. Save the edited entry.
 
 The public site renders the selected `/media/...` path directly, so the visual design stays unchanged.
+
+## Link domains in Pages CMS
+
+The CMS follows the useful part of the Pages CMS blog template: collection rows show the most important editing context directly in the list.
+
+For `02. Story images` and `03. Path cards`, Pages shows the image, title, link domain, URL, and order in the collection list. Hero and contact links show `Link domain` next to each URL inside `01. Text and hero`.

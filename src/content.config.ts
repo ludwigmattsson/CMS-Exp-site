@@ -5,12 +5,14 @@ import { z } from 'astro/zod';
 
 const linkSchema = z.object({
   label: z.string(),
+  domain: z.string(),
   href: z.string(),
 });
 
 const storyCardSchema = z.object({
   order: z.number(),
   title: z.string(),
+  domain: z.string(),
   image: z.string(),
   href: z.string(),
 });
@@ -19,6 +21,7 @@ const pathCardSchema = z.object({
   order: z.number(),
   title: z.string(),
   subtitle: z.string(),
+  domain: z.string(),
   image: z.string(),
   href: z.string(),
   description: z.string(),
@@ -57,6 +60,7 @@ const pages = defineCollection({
         z.object({
           title: z.string(),
           label: z.string(),
+          domain: z.string(),
           href: z.string(),
           description: z.string(),
         }),

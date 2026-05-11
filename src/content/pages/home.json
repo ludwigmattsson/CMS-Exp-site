@@ -11,10 +11,12 @@
     "image": "/media/experience-vision-pro.png",
     "primaryAction": {
       "label": "For designers",
+      "domain": "tegel.scania.com",
       "href": "https://tegel.scania.com/foundations/design-tokens"
     },
     "secondaryAction": {
       "label": "For developers",
+      "domain": "tegel.scania.com",
       "href": "https://tegel.scania.com/development/getting-started-development"
     }
   },
@@ -43,18 +45,21 @@
       {
         "title": "Teams channel",
         "label": "Open Teams",
+        "domain": "teams.microsoft.com",
         "href": "https://teams.microsoft.com/",
         "description": "Use Teams for quick alignment, design reviews, and questions that need a shared thread."
       },
       {
         "title": "Email the Tegel team",
         "label": "Write email",
+        "domain": "scania.com",
         "href": "mailto:corporate.digital.experience@scania.com?subject=Tegel%20Design%20System%20request",
         "description": "Use email for scoped requests, onboarding support, and decisions that need a clear owner."
       },
       {
         "title": "GitHub issues",
         "label": "Open issues",
+        "domain": "github.com",
         "href": "https://github.com/scania-digital-design-system/tegel/issues",
         "description": "Report component defects, documentation gaps, and implementation problems."
       }

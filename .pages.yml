@@ -70,6 +70,10 @@ content:
                   - name: label
                     label: Button text
                     type: string
+                  - name: domain
+                    label: Link domain
+                    type: string
+                    description: Visible domain for this button, for example tegel.scania.com.
                   - name: href
                     label: Button URL
                     type: string
@@ -80,6 +84,10 @@ content:
                   - name: label
                     label: Button text
                     type: string
+                  - name: domain
+                    label: Link domain
+                    type: string
+                    description: Visible domain for this button, for example tegel.scania.com.
                   - name: href
                     label: Button URL
                     type: string
@@ -134,6 +142,10 @@ content:
                   - name: label
                     label: Link label
                     type: string
+                  - name: domain
+                    label: Link domain
+                    type: string
+                    description: Visible domain for this contact link.
                   - name: href
                     label: Link URL
                     type: string
@@ -148,7 +160,7 @@ content:
         format: json
         filename: "{order}-{title}.json"
         view:
-          fields: [image, title, href, order]
+          fields: [image, title, domain, href, order]
           sort: order
           order: asc
         fields:
@@ -161,6 +173,11 @@ content:
             label: Story title
             type: string
             required: true
+          - name: domain
+            label: Link domain
+            type: string
+            required: true
+            description: Visible domain for this story link.
           - name: image
             label: Story image
             component: siteImage
@@ -178,7 +195,7 @@ content:
         format: json
         filename: "{order}-{title}.json"
         view:
-          fields: [image, title, subtitle, order]
+          fields: [image, title, subtitle, domain, href, order]
           sort: order
           order: asc
         fields:
@@ -195,6 +212,11 @@ content:
             label: Small label
             type: string
             required: true
+          - name: domain
+            label: Link domain
+            type: string
+            required: true
+            description: Visible domain for this path-card link.
           - name: image
             label: Card image
             component: siteImage
