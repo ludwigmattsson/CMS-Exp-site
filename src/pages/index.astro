@@ -3,18 +3,36 @@ import '@scania/tegel-lite/scania-variables.css';
 import '@scania/tegel-lite/global.css';
 import '@scania/tegel-lite/components.css';
 
-import { getEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 import App from '../App';
 import '../styles.css';
 
 const page = await getEntry('pages', 'home');
+const storyEntries = await getCollection('storyCards');
+const pathEntries = await getCollection('pathCards');
 
 if (!page) {
   throw new Error('Missing CMS content entry: src/content/pages/home.json');
 }
 
-const { data } = page;
+const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
+
+const data = {
+  ...page.data,
+  stories: storyEntries.sort(byOrder).map(({ data }) => ({
+    title: data.title,
+    image: data.image,
+    href: data.href,
+  })),
+  paths: pathEntries.sort(byOrder).map(({ data }) => ({
+    title: data.title,
+    subtitle: data.subtitle,
+    image: data.image,
+    href: data.href,
+    description: data.description,
+  })),
+};
 ---
 
 <!doctype html>

@@ -10,7 +10,6 @@ components:
   siteImage:
     type: image
     options:
-      path: public/media
       extensions: [jpg, jpeg, png, webp]
       categories: [image]
       rename: safe
@@ -107,54 +106,8 @@ content:
           - name: description
             label: Card text
             type: text
-      - name: stories
-        label: 05. Story strip images
-        type: object
-        description: Original story strip. Changing an image here updates the public story image.
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title} - {image}"
-        fields:
-          - name: title
-            label: Story title
-            type: string
-          - name: image
-            label: Story image
-            component: siteImage
-            required: true
-            description: Select or upload an image from public/media. The selected image is rendered in this story card.
-          - name: href
-            label: Target URL
-            type: string
-      - name: paths
-        label: 06. Path card images and links
-        type: object
-        description: Original path cards. Changing an image here updates the public card image.
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title} - {subtitle} - {image}"
-        fields:
-          - name: title
-            label: Card title
-            type: string
-          - name: subtitle
-            label: Small label
-            type: string
-          - name: image
-            label: Card image
-            component: siteImage
-            required: true
-            description: Select or upload an image from public/media. The selected image is rendered in this path card.
-          - name: href
-            label: Target URL
-            type: string
-          - name: description
-            label: Card text
-            type: text
       - name: contact
-        label: 07. Contact section
+        label: 05. Contact section
         type: object
         description: Original contact section.
         fields:
@@ -184,3 +137,67 @@ content:
               - name: description
                 label: Card text
                 type: text
+
+  - name: story-cards
+    label: Home story images
+    type: collection
+    path: src/content/story-cards
+    format: json
+    filename: "{order}-{title}.json"
+    view:
+      fields: [image, title, href, order]
+    fields:
+      - name: order
+        label: Display order
+        type: number
+        required: true
+        description: Lower numbers appear first on the public home page.
+      - name: title
+        label: Story title
+        type: string
+        required: true
+      - name: image
+        label: Story image
+        component: siteImage
+        required: true
+        description: This image is shown in the story strip on the public home page.
+      - name: href
+        label: Target URL
+        type: string
+        required: true
+
+  - name: path-cards
+    label: Home path cards
+    type: collection
+    path: src/content/path-cards
+    format: json
+    filename: "{order}-{title}.json"
+    view:
+      fields: [image, title, subtitle, order]
+    fields:
+      - name: order
+        label: Display order
+        type: number
+        required: true
+        description: Lower numbers appear first on the public home page.
+      - name: title
+        label: Card title
+        type: string
+        required: true
+      - name: subtitle
+        label: Small label
+        type: string
+        required: true
+      - name: image
+        label: Card image
+        component: siteImage
+        required: true
+        description: This image is shown in the path card on the public home page.
+      - name: href
+        label: Target URL
+        type: string
+        required: true
+      - name: description
+        label: Card text
+        type: text
+        required: true

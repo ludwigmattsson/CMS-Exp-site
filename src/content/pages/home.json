@@ -36,53 +36,6 @@
       "description": "Design, code, and quality standards are kept together so teams can move from Figma to implementation with less handoff loss."
     }
   ],
-  "stories": [
-    {
-      "title": "Show the detail",
-      "image": "/media/scania-cap-detail.png",
-      "href": "https://tegel.scania.com/foundations/design-tokens"
-    },
-    {
-      "title": "Reveal the system",
-      "image": "/media/scania-launch-event.png",
-      "href": "https://tegel.scania.com/guidance/accessibility"
-    },
-    {
-      "title": "Move into code",
-      "image": "/media/experience-vision-pro.png",
-      "href": "https://tegel.scania.com/development/getting-started-development"
-    }
-  ],
-  "paths": [
-    {
-      "title": "Foundation",
-      "subtitle": "Tokens, type, grid",
-      "image": "/media/boarding-step.jpg",
-      "href": "https://tegel.scania.com/foundations/design-tokens",
-      "description": "Start with the visual and behavioral foundations before choosing components."
-    },
-    {
-      "title": "Components",
-      "subtitle": "Figma to npm",
-      "image": "/media/tegel-screens.jpg",
-      "href": "https://tegel.scania.com/components",
-      "description": "Find the Figma component, then check its npm class or prop contract before implementing."
-    },
-    {
-      "title": "Patterns",
-      "subtitle": "Reusable decisions",
-      "image": "/media/smart-dash.jpg",
-      "href": "https://tegel.scania.com/guidance/navigation",
-      "description": "Guided patterns show which component composition fits a workflow and why."
-    },
-    {
-      "title": "Digital quality",
-      "subtitle": "Ship with confidence",
-      "image": "/media/driver-app.jpg",
-      "href": "https://tegel.scania.com/guidance/accessibility",
-      "description": "Accessibility and engineering checks become visible parts of the design system journey."
-    }
-  ],
   "contact": {
     "title": "Choose the right communication channel.",
     "body": "Use the channel that matches the work: quick team alignment, scoped follow-up, or implementation issues that need tracking.",

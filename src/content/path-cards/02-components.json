@@ -1,0 +1,8 @@
+{
+  "order": 2,
+  "title": "Components",
+  "subtitle": "Figma to npm",
+  "image": "/media/tegel-screens.jpg",
+  "href": "https://tegel.scania.com/components",
+  "description": "Find the Figma component, then check its npm class or prop contract before implementing."
+}

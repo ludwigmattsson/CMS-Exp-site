@@ -8,12 +8,20 @@ const linkSchema = z.object({
   href: z.string(),
 });
 
-const imageLinkSchema = z.object({
+const storyCardSchema = z.object({
+  order: z.number(),
   title: z.string(),
-  subtitle: z.string().optional(),
   image: z.string(),
   href: z.string(),
-  description: z.string().optional(),
+});
+
+const pathCardSchema = z.object({
+  order: z.number(),
+  title: z.string(),
+  subtitle: z.string(),
+  image: z.string(),
+  href: z.string(),
+  description: z.string(),
 });
 
 const pages = defineCollection({
@@ -42,8 +50,6 @@ const pages = defineCollection({
         description: z.string(),
       }),
     ),
-    paths: z.array(imageLinkSchema),
-    stories: z.array(imageLinkSchema),
     contact: z.object({
       title: z.string(),
       body: z.string(),
@@ -59,4 +65,14 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+const storyCards = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/story-cards' }),
+  schema: storyCardSchema,
+});
+
+const pathCards = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/path-cards' }),
+  schema: pathCardSchema,
+});
+
+export const collections = { pages, storyCards, pathCards };

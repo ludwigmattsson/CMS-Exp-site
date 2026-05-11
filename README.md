@@ -49,9 +49,10 @@ Do not edit `.jpg` or `.png` files in GitHub. They are binary files, so GitHub c
 
 Use this flow instead:
 
-1. Open `Home page` in Pages CMS.
-2. Open the section you want to edit: `Hero`, `Story strip images`, or `Path card images and links`.
-3. Use the image field to select an existing image from `public/media`, or upload a new one.
-4. Save the page.
+1. Open `Home page` in Pages CMS to edit the hero image and page text.
+2. Open `Home story images` to edit the three story-strip images.
+3. Open `Home path cards` to edit the four path-card images.
+4. Use each image field to select an existing image from `public/media`, or upload a new one.
+5. Save the edited entry.
 
 The public site renders the selected `/media/...` path directly, so the visual design stays unchanged.
