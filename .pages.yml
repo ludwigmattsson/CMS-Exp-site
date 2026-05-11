@@ -1,12 +1,10 @@
 
 media:
-  - name: images
-    label: Page images
-    input: public/media
-    output: /media
-    extensions: [jpg, jpeg, png, webp]
-    categories: [image]
-    rename: safe
+  input: public/media
+  output: /media
+  extensions: [jpg, jpeg, png, webp]
+  categories: [image]
+  rename: safe
 
 content:
   - name: home
@@ -53,9 +51,6 @@ content:
             label: Hero poster image
             type: image
             required: true
-            options:
-              media: images
-              extensions: [jpg, jpeg, png, webp]
           - name: primaryAction
             label: Primary button
             type: object
@@ -117,9 +112,6 @@ content:
           - name: image
             label: Story image
             type: image
-            options:
-              media: images
-              extensions: [jpg, jpeg, png, webp]
           - name: href
             label: Target URL
             type: string
@@ -141,9 +133,6 @@ content:
           - name: image
             label: Card image
             type: image
-            options:
-              media: images
-              extensions: [jpg, jpeg, png, webp]
           - name: href
             label: Target URL
             type: string
