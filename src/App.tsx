@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react'
 import Card from './components/Card'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Icon from './components/Icon'
 import TegelSearchPanel from './components/TegelSearchPanel'
 import { getTegelSearchResultLabel, searchTegelResources } from './data/tegelSearch'
 
@@ -72,8 +71,6 @@ const experienceHeroVideoMobile =
 
 function App({ content }: AppProps) {
   const [isDarkMode, setDarkMode] = useState(true)
-  const [activeSection, setActiveSection] = useState('hero')
-  const [menuOpen, setMenuOpen] = useState(false)
   const [query, setQuery] = useState('')
 
   const resourceResults = useMemo(() => searchTegelResources(query), [query])
@@ -107,8 +104,6 @@ function App({ content }: AppProps) {
   )
 
   const navigate = (section: string) => {
-    setActiveSection(section)
-    setMenuOpen(false)
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
@@ -129,64 +124,9 @@ function App({ content }: AppProps) {
     <div className={`scania ${isDarkMode ? 'tl-mode-dark' : 'tl-mode-light'}`}>
       <Header
         onNavigate={navigate}
-        onOpenMenu={() => setMenuOpen(true)}
         isDarkMode={isDarkMode}
         onToggleMode={setDarkMode}
       />
-
-      {menuOpen && (
-        <aside className="tl-side-menu app-side-menu" aria-label="Mobile navigation">
-          <div className="tl-side-menu__wrapper tl-side-menu__wrapper--open">
-            <button
-              className="tl-side-menu__overlay"
-              aria-label="Close menu"
-              onClick={() => setMenuOpen(false)}
-            />
-            <div className="tl-side-menu__aside">
-              <div className="tl-side-menu__close">
-                <button className="tl-side-menu__item" onClick={() => setMenuOpen(false)}>
-                  <Icon name="cross" size="20" />
-                  Close
-                </button>
-              </div>
-              <nav className="tl-side-menu__navigation" aria-label="Prototype sections">
-                <div className="tl-side-menu__list-wrapper">
-                  <ul className="tl-side-menu__upper-list">
-                    {['hero', 'principles', 'paths', 'resources', 'patterns'].map((item) => (
-                      <li key={item}>
-                        <button
-                          className={`tl-side-menu__item${
-                            activeSection === item ? ' tl-side-menu__item--selected' : ''
-                          }`}
-                          onClick={() => navigate(item)}
-                        >
-                          <Icon
-                            name={
-                              item === 'hero'
-                                ? 'home'
-                                : item === 'resources'
-                                  ? 'search'
-                                  : item === 'patterns'
-                                    ? 'contact'
-                                    : 'document'
-                            }
-                            size="20"
-                          />
-                          {item === 'hero'
-                            ? 'Home'
-                            : item === 'patterns'
-                              ? 'Contact'
-                            : item.charAt(0).toUpperCase() + item.slice(1)}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </aside>
-      )}
 
       <main>
         <section id="hero" className="hero-section">

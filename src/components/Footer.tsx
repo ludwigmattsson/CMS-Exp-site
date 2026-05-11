@@ -49,6 +49,7 @@ export default function Footer() {
             <button
               className="tl-footer__top-title"
               type="button"
+              aria-expanded={expandedGroups.includes(index)}
               onClick={() => toggleGroup(index)}
             >
               {group.title}

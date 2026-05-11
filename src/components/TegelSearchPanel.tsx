@@ -37,11 +37,16 @@ export default function TegelSearchPanel({
 }: TegelSearchPanelProps) {
   const visibleResults = items.slice(0, maxResults)
 
+  const openResult = (url: string) => {
+    onClose?.()
+    window.location.href = url
+  }
+
   const openFirstResult = () => {
     const firstResult = visibleResults[0]
 
     if (firstResult) {
-      window.location.href = firstResult.url
+      openResult(firstResult.url)
     }
   }
 
@@ -84,7 +89,14 @@ export default function TegelSearchPanel({
       <ul className="site-search__results">
         {visibleResults.map((result) => (
           <li className="tl-header__dropdown-menu-item site-search__result-row" key={result.url}>
-            <a className="site-search__result" href={result.url} onClick={onClose}>
+            <a
+              className="site-search__result"
+              href={result.url}
+              onClick={(event) => {
+                event.preventDefault()
+                openResult(result.url)
+              }}
+            >
               <span className="site-search__result-section">{result.section}</span>
               <span className="site-search__result-title">{result.title}</span>
               <span className="site-search__result-description">{result.description}</span>
