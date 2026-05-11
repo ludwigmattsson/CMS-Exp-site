@@ -47,3 +47,19 @@ npm run build
 3. Pages CMS will read `.pages.yml` from the repository root and expose the home page fields.
 
 Astro's content collection schema is in `src/content.config.ts`, so invalid CMS data fails during build instead of silently shipping broken content.
+
+## Pages CMS editing structure
+
+The Pages CMS home editor is structured in numbered sections:
+
+1. Image library - previews every page image in one place.
+2. SEO and browser title.
+3. Hero section.
+4. Intro section.
+5. Principle cards.
+6. Path cards.
+7. Story cards.
+8. Contact section.
+
+The image library is intended as a quick visual overview. The actual page content still uses the image fields inside Hero, Path cards, and Story cards.
+

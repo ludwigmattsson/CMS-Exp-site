@@ -106,5 +106,51 @@
         "description": "Report component defects, documentation gaps, and implementation problems."
       }
     ]
+  },
+  "mediaGallery": {
+    "title": "Image library",
+    "description": "All images used on the home page. Use this section to quickly preview and swap page imagery in Pages CMS.",
+    "images": [
+      {
+        "title": "Hero image",
+        "usage": "Hero background",
+        "image": "/media/hero.jpg"
+      },
+      {
+        "title": "Foundation path",
+        "usage": "Path card image",
+        "image": "/media/boarding-step.jpg"
+      },
+      {
+        "title": "Components path",
+        "usage": "Path card image",
+        "image": "/media/tegel-screens.jpg"
+      },
+      {
+        "title": "Patterns path",
+        "usage": "Path card image",
+        "image": "/media/smart-dash.jpg"
+      },
+      {
+        "title": "Digital quality path",
+        "usage": "Path card image",
+        "image": "/media/driver-app.jpg"
+      },
+      {
+        "title": "Show the detail",
+        "usage": "Story card image",
+        "image": "/media/scania-cap-detail.png"
+      },
+      {
+        "title": "Reveal the system",
+        "usage": "Story card image",
+        "image": "/media/scania-launch-event.png"
+      },
+      {
+        "title": "Move into code",
+        "usage": "Story card image",
+        "image": "/media/experience-vision-pro.png"
+      }
+    ]
   }
 }

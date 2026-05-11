@@ -1,6 +1,11 @@
 media:
-  input: public/media
-  output: /media
+  - name: images
+    label: Page images
+    input: public/media
+    output: /media
+    extensions: [jpg, jpeg, png, webp]
+    categories: [image]
+    rename: safe
 
 content:
   - name: home
@@ -10,111 +15,188 @@ content:
     format: json
     fields:
       - name: language
-        label: Language
+        label: 00. Language
         type: string
         required: true
-      - name: seo
-        label: SEO
+        description: Page language code, for example "en" or "sv".
+      - name: mediaGallery
+        label: 01. Image library - all page images
         type: object
+        description: Quick overview of every image used on this page. Open each item to preview or replace the image.
         fields:
           - name: title
+            label: Section title
+            type: string
+          - name: description
+            label: Help text
+            type: text
+          - name: images
+            label: Images
+            type: object
+            list:
+              collapsible:
+                collapsed: false
+                summary: "{title} - {usage}"
+            fields:
+              - name: title
+                label: Image name
+                type: string
+              - name: usage
+                label: Used for
+                type: string
+              - name: image
+                label: Image file
+                type: image
+                options:
+                  media: images
+                  path: public/media
+                  extensions: [jpg, jpeg, png, webp]
+      - name: seo
+        label: 02. SEO and browser title
+        type: object
+        description: Search result and browser tab text.
+        fields:
+          - name: title
+            label: Page title
             type: string
             required: true
           - name: description
+            label: Meta description
             type: text
             required: true
       - name: hero
-        label: Hero
+        label: 03. Hero section
         type: object
+        description: First screen content: headline, lead text, hero image, and buttons.
         fields:
           - name: eyebrow
+            label: Eyebrow
             type: string
           - name: title
+            label: Main headline
             type: string
             required: true
           - name: lead
+            label: Lead paragraph
             type: text
             required: true
           - name: image
+            label: Hero background image
             type: image
             required: true
+            options:
+              media: images
+              path: public/media
+              extensions: [jpg, jpeg, png, webp]
           - name: primaryAction
-            label: Primary action
+            label: Primary button
             type: object
             fields:
               - name: label
+                label: Button text
                 type: string
               - name: href
+                label: Button URL
                 type: string
           - name: secondaryAction
-            label: Secondary action
+            label: Secondary button
             type: object
             fields:
               - name: label
+                label: Button text
                 type: string
               - name: href
+                label: Button URL
                 type: string
       - name: intro
-        label: Intro
+        label: 04. Intro section
         type: object
+        description: The short strategy statement below the hero.
         fields:
           - name: title
+            label: Section headline
             type: string
           - name: body
+            label: Section text
             type: text
       - name: principles
-        label: Principles
+        label: 05. Principle cards
         type: object
+        description: Three short cards that explain the direction.
         list:
           collapsible:
             collapsed: true
             summary: "{title}"
         fields:
           - name: title
+            label: Card title
             type: string
           - name: description
+            label: Card text
             type: text
       - name: paths
-        label: Paths
+        label: 06. Path cards
         type: object
+        description: Main navigation cards with one image each.
         list:
           collapsible:
             collapsed: true
-            summary: "{title}"
+            summary: "{title} - {subtitle}"
         fields:
           - name: title
+            label: Card title
             type: string
           - name: subtitle
+            label: Small label
             type: string
           - name: image
+            label: Card image
             type: image
+            options:
+              media: images
+              path: public/media
+              extensions: [jpg, jpeg, png, webp]
           - name: href
+            label: Target URL
             type: string
           - name: description
+            label: Card text
             type: text
       - name: stories
-        label: Stories
+        label: 07. Story cards
         type: object
+        description: Editorial image cards in the dark story section.
         list:
           collapsible:
             collapsed: true
             summary: "{title}"
         fields:
           - name: title
+            label: Story title
             type: string
           - name: image
+            label: Story image
             type: image
+            options:
+              media: images
+              path: public/media
+              extensions: [jpg, jpeg, png, webp]
           - name: href
+            label: Target URL
             type: string
       - name: contact
-        label: Contact
+        label: 08. Contact section
         type: object
+        description: Final section with contact cards.
         fields:
           - name: title
+            label: Section headline
             type: string
           - name: body
+            label: Section text
             type: text
           - name: links
+            label: Contact cards
             type: object
             list:
               collapsible:
@@ -122,10 +204,14 @@ content:
                 summary: "{title}"
             fields:
               - name: title
+                label: Card title
                 type: string
               - name: label
+                label: Link label
                 type: string
               - name: href
+                label: Link URL
                 type: string
               - name: description
+                label: Card text
                 type: text

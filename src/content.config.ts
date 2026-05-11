@@ -15,6 +15,12 @@ const imageLinkSchema = z.object({
   description: z.string().optional(),
 });
 
+const mediaGalleryImageSchema = z.object({
+  title: z.string(),
+  usage: z.string(),
+  image: z.string(),
+});
+
 const pages = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/pages' }),
   schema: z.object({
@@ -31,6 +37,13 @@ const pages = defineCollection({
       primaryAction: linkSchema,
       secondaryAction: linkSchema,
     }),
+    mediaGallery: z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        images: z.array(mediaGalleryImageSchema),
+      })
+      .optional(),
     intro: z.object({
       title: z.string(),
       body: z.string(),
