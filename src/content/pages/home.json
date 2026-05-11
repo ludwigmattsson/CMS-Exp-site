@@ -1,13 +1,13 @@
 {
   "language": "en",
   "seo": {
-    "title": "Tegel Experience Prototype",
-    "description": "Clickable coded redesign prototype for the Tegel Design System home page."
+    "title": "Tegel Design System",
+    "description": "A managed Astro version of the Tegel Design System home page concept."
   },
   "hero": {
     "eyebrow": "Scania digital experience",
     "title": "Tegel Design System",
-    "lead": "A more editorial, product-confident home for Scania's modular system for digital products and services.",
+    "lead": "A faster, CMS-managed Astro site for Scania's modular system for digital products and services.",
     "image": "/media/hero.jpg",
     "primaryAction": {
       "label": "For designers",
@@ -64,35 +64,21 @@
       "image": "/media/driver-app.jpg",
       "href": "https://tegel.scania.com/guidance/accessibility",
       "description": "Accessibility and engineering checks become visible parts of the design system journey."
-    },
-    {
-      "title": "Governance",
-      "subtitle": "Rules and review",
-      "image": "/media/battery.jpg",
-      "href": "https://tegel.scania.com/resources/release-notes",
-      "description": "Keep component decisions, usage rules, and review criteria in the same flow."
-    },
-    {
-      "title": "Implementation",
-      "subtitle": "Getting started",
-      "image": "/media/hero.jpg",
-      "href": "https://tegel.scania.com/development/getting-started-development",
-      "description": "Move from design decision to implementation with the package setup and code guidance."
     }
   ],
   "stories": [
     {
-      "title": "One small step for teams",
+      "title": "Show the detail",
       "image": "/media/scania-cap-detail.png",
       "href": "https://tegel.scania.com/foundations/design-tokens"
     },
     {
-      "title": "Digital confidence",
+      "title": "Reveal the system",
       "image": "/media/scania-launch-event.png",
       "href": "https://tegel.scania.com/guidance/accessibility"
     },
     {
-      "title": "From Figma to code",
+      "title": "Move into code",
       "image": "/media/experience-vision-pro.png",
       "href": "https://tegel.scania.com/development/getting-started-development"
     }
@@ -104,7 +90,7 @@
       {
         "title": "Teams channel",
         "label": "Open Teams",
-        "href": "https://teams.microsoft.com/l/channel/19%3a0bdb85c54d4b42bfa8f7690c8b4b547d7%40thread.tacv2/Tegel%20Design%20System?groupId=d836d25f-5db0-491f-b1a7-6a8fc6e0626b8&tenantId=7504ff8e-0d5e-465c-8dd7-59e4aa3e4a35",
+        "href": "https://teams.microsoft.com/",
         "description": "Use Teams for quick alignment, design reviews, and questions that need a shared thread."
       },
       {
