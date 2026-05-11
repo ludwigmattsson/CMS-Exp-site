@@ -48,9 +48,10 @@ content:
             type: text
             required: true
           - name: image
-            label: Hero poster image
-            type: image
+            label: Hero poster image path or URL
+            type: string
             required: true
+            description: Use an existing repo image like /media/hero.jpg, or paste a full external image URL. GitHub cannot edit JPG/PNG files directly; upload/replace files separately, then update this path.
           - name: primaryAction
             label: Primary button
             type: object
@@ -110,8 +111,9 @@ content:
             label: Story title
             type: string
           - name: image
-            label: Story image
-            type: image
+            label: Story image path or URL
+            type: string
+            description: Use an existing repo image like /media/scania-cap-detail.png, or paste a full external image URL.
           - name: href
             label: Target URL
             type: string
@@ -131,8 +133,9 @@ content:
             label: Small label
             type: string
           - name: image
-            label: Card image
-            type: image
+            label: Card image path or URL
+            type: string
+            description: Use an existing repo image like /media/boarding-step.jpg, or paste a full external image URL.
           - name: href
             label: Target URL
             type: string
