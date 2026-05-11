@@ -1,4 +1,3 @@
-
 media:
   input: public/media
   output: /media
@@ -15,111 +14,90 @@ components:
       rename: safe
 
 content:
-  - name: home
+  - name: home-page
     label: Home page
-    type: file
-    path: src/content/pages/home.json
-    format: json
-    fields:
-      - name: language
-        label: 00. Language
-        type: string
-        required: true
-        description: Page language code, for example "en" or "sv".
-      - name: seo
-        label: 01. SEO and browser title
-        type: object
-        description: Search result and browser tab text.
+    type: group
+    items:
+      - name: home
+        label: 01. Text and hero
+        type: file
+        path: src/content/pages/home.json
+        format: json
         fields:
-          - name: title
-            label: Page title
+          - name: language
+            label: 00. Language
             type: string
             required: true
-          - name: description
-            label: Meta description
-            type: text
-            required: true
-      - name: hero
-        label: 02. Hero section
-        type: object
-        description: Original exp site hero content. Image field controls the video poster image.
-        fields:
-          - name: eyebrow
-            label: Eyebrow
-            type: string
-          - name: title
-            label: Main headline
-            type: string
-            required: true
-          - name: lead
-            label: Lead paragraph
-            type: text
-            required: true
-          - name: image
-            label: Hero poster image
-            component: siteImage
-            required: true
-            description: Select or upload an image from public/media. The saved value stays /media/filename.ext.
-          - name: primaryAction
-            label: Primary button
+            description: Page language code, for example "en" or "sv".
+          - name: seo
+            label: 01. SEO and browser title
             type: object
+            description: Search result and browser tab text.
             fields:
-              - name: label
-                label: Button text
+              - name: title
+                label: Page title
                 type: string
-              - name: href
-                label: Button URL
-                type: string
-          - name: secondaryAction
-            label: Secondary button
+                required: true
+              - name: description
+                label: Meta description
+                type: text
+                required: true
+          - name: hero
+            label: 02. Hero section
             type: object
+            description: Original exp site hero content. Image field controls the video poster image.
             fields:
-              - name: label
-                label: Button text
+              - name: eyebrow
+                label: Eyebrow
                 type: string
-              - name: href
-                label: Button URL
+              - name: title
+                label: Main headline
                 type: string
-      - name: intro
-        label: 03. Intro section
-        type: object
-        description: Original intro block below the hero.
-        fields:
-          - name: title
-            label: Section headline
-            type: string
-          - name: body
-            label: Section text
-            type: text
-      - name: principles
-        label: 04. Principle cards
-        type: object
-        description: Original three cards in the intro section.
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Card title
-            type: string
-          - name: description
-            label: Card text
-            type: text
-      - name: contact
-        label: 05. Contact section
-        type: object
-        description: Original contact section.
-        fields:
-          - name: title
-            label: Section headline
-            type: string
-          - name: body
-            label: Section text
-            type: text
-          - name: links
-            label: Contact cards
+                required: true
+              - name: lead
+                label: Lead paragraph
+                type: text
+                required: true
+              - name: image
+                label: Hero poster image
+                component: siteImage
+                required: true
+                description: "To replace this image: click the trash icon on the preview first. That only clears this field, it does not delete the file. Then Select or Upload appears."
+              - name: primaryAction
+                label: Primary button
+                type: object
+                fields:
+                  - name: label
+                    label: Button text
+                    type: string
+                  - name: href
+                    label: Button URL
+                    type: string
+              - name: secondaryAction
+                label: Secondary button
+                type: object
+                fields:
+                  - name: label
+                    label: Button text
+                    type: string
+                  - name: href
+                    label: Button URL
+                    type: string
+          - name: intro
+            label: 03. Intro section
             type: object
+            description: Original intro block below the hero.
+            fields:
+              - name: title
+                label: Section headline
+                type: string
+              - name: body
+                label: Section text
+                type: text
+          - name: principles
+            label: 04. Principle cards
+            type: object
+            description: Original three cards in the intro section.
             list:
               collapsible:
                 collapsed: true
@@ -128,76 +106,105 @@ content:
               - name: title
                 label: Card title
                 type: string
-              - name: label
-                label: Link label
-                type: string
-              - name: href
-                label: Link URL
-                type: string
               - name: description
                 label: Card text
                 type: text
+          - name: contact
+            label: 05. Contact section
+            type: object
+            description: Original contact section.
+            fields:
+              - name: title
+                label: Section headline
+                type: string
+              - name: body
+                label: Section text
+                type: text
+              - name: links
+                label: Contact cards
+                type: object
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{title}"
+                fields:
+                  - name: title
+                    label: Card title
+                    type: string
+                  - name: label
+                    label: Link label
+                    type: string
+                  - name: href
+                    label: Link URL
+                    type: string
+                  - name: description
+                    label: Card text
+                    type: text
 
-  - name: story-cards
-    label: Home story images
-    type: collection
-    path: src/content/story-cards
-    format: json
-    filename: "{order}-{title}.json"
-    view:
-      fields: [image, title, href, order]
-    fields:
-      - name: order
-        label: Display order
-        type: number
-        required: true
-        description: Lower numbers appear first on the public home page.
-      - name: title
-        label: Story title
-        type: string
-        required: true
-      - name: image
-        label: Story image
-        component: siteImage
-        required: true
-        description: This image is shown in the story strip on the public home page.
-      - name: href
-        label: Target URL
-        type: string
-        required: true
+      - name: story-cards
+        label: 02. Story images
+        type: collection
+        path: src/content/story-cards
+        format: json
+        filename: "{order}-{title}.json"
+        view:
+          fields: [image, title, href, order]
+          sort: order
+          order: asc
+        fields:
+          - name: order
+            label: Display order
+            type: number
+            required: true
+            description: Lower numbers appear first on the public home page.
+          - name: title
+            label: Story title
+            type: string
+            required: true
+          - name: image
+            label: Story image
+            component: siteImage
+            required: true
+            description: "To replace this image: click the trash icon on the preview first. That only clears this field, it does not delete the file. Then Select or Upload appears."
+          - name: href
+            label: Target URL
+            type: string
+            required: true
 
-  - name: path-cards
-    label: Home path cards
-    type: collection
-    path: src/content/path-cards
-    format: json
-    filename: "{order}-{title}.json"
-    view:
-      fields: [image, title, subtitle, order]
-    fields:
-      - name: order
-        label: Display order
-        type: number
-        required: true
-        description: Lower numbers appear first on the public home page.
-      - name: title
-        label: Card title
-        type: string
-        required: true
-      - name: subtitle
-        label: Small label
-        type: string
-        required: true
-      - name: image
-        label: Card image
-        component: siteImage
-        required: true
-        description: This image is shown in the path card on the public home page.
-      - name: href
-        label: Target URL
-        type: string
-        required: true
-      - name: description
-        label: Card text
-        type: text
-        required: true
+      - name: path-cards
+        label: 03. Path cards
+        type: collection
+        path: src/content/path-cards
+        format: json
+        filename: "{order}-{title}.json"
+        view:
+          fields: [image, title, subtitle, order]
+          sort: order
+          order: asc
+        fields:
+          - name: order
+            label: Display order
+            type: number
+            required: true
+            description: Lower numbers appear first on the public home page.
+          - name: title
+            label: Card title
+            type: string
+            required: true
+          - name: subtitle
+            label: Small label
+            type: string
+            required: true
+          - name: image
+            label: Card image
+            component: siteImage
+            required: true
+            description: "To replace this image: click the trash icon on the preview first. That only clears this field, it does not delete the file. Then Select or Upload appears."
+          - name: href
+            label: Target URL
+            type: string
+            required: true
+          - name: description
+            label: Card text
+            type: text
+            required: true
