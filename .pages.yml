@@ -7,6 +7,36 @@ media:
   rename: safe
 
 content:
+  - name: media-assets
+    label: Media library
+    type: collection
+    path: src/content/media-assets
+    format: json
+    filename: "{title}.json"
+    view:
+      primary: title
+      fields: [usage, image, preview]
+    fields:
+      - name: title
+        label: Image name
+        type: string
+        required: true
+        description: Human-readable name shown in Home image pickers.
+      - name: usage
+        label: Used for
+        type: string
+        required: true
+        description: Example: Hero poster, Path card, Story strip.
+      - name: image
+        label: Image path or URL
+        type: string
+        required: true
+        description: Use /media/filename.jpg for uploaded files in public/media, or paste a full external image URL.
+      - name: preview
+        label: Preview URL
+        type: string
+        description: Optional. Used only so Pages can show thumbnails in Home image pickers. For /media images, use https://raw.githubusercontent.com/ludwigmattsson/CMS-Exp-site/main/public/media/filename.jpg.
+
   - name: home
     label: Home page
     type: file
@@ -48,10 +78,16 @@ content:
             type: text
             required: true
           - name: image
-            label: Hero poster image path or URL
-            type: string
+            label: Hero poster image
+            type: reference
             required: true
-            description: Use an existing repo image like /media/hero.jpg, or paste a full external image URL. GitHub cannot edit JPG/PNG files directly; upload/replace files separately, then update this path.
+            description: Pick from Media library. To add a new image, upload it under Media, create a Media library item, then select it here.
+            options:
+              collection: media-assets
+              search: title,usage,image
+              value: "{image}"
+              label: "{title} - {usage}"
+              image: "{preview}"
           - name: primaryAction
             label: Primary button
             type: object
@@ -111,9 +147,15 @@ content:
             label: Story title
             type: string
           - name: image
-            label: Story image path or URL
-            type: string
-            description: Use an existing repo image like /media/scania-cap-detail.png, or paste a full external image URL.
+            label: Story image
+            type: reference
+            description: Pick from Media library. The selected image is rendered in this story card.
+            options:
+              collection: media-assets
+              search: title,usage,image
+              value: "{image}"
+              label: "{title} - {usage}"
+              image: "{preview}"
           - name: href
             label: Target URL
             type: string
@@ -133,9 +175,15 @@ content:
             label: Small label
             type: string
           - name: image
-            label: Card image path or URL
-            type: string
-            description: Use an existing repo image like /media/boarding-step.jpg, or paste a full external image URL.
+            label: Card image
+            type: reference
+            description: Pick from Media library. The selected image is rendered in this path card.
+            options:
+              collection: media-assets
+              search: title,usage,image
+              value: "{image}"
+              label: "{title} - {usage}"
+              image: "{preview}"
           - name: href
             label: Target URL
             type: string
