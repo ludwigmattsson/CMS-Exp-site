@@ -1,0 +1,131 @@
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: src/content/pages/home.json
+    format: json
+    fields:
+      - name: language
+        label: Language
+        type: string
+        required: true
+      - name: seo
+        label: SEO
+        type: object
+        fields:
+          - name: title
+            type: string
+            required: true
+          - name: description
+            type: text
+            required: true
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            type: string
+          - name: title
+            type: string
+            required: true
+          - name: lead
+            type: text
+            required: true
+          - name: image
+            type: image
+            required: true
+          - name: primaryAction
+            label: Primary action
+            type: object
+            fields:
+              - name: label
+                type: string
+              - name: href
+                type: string
+          - name: secondaryAction
+            label: Secondary action
+            type: object
+            fields:
+              - name: label
+                type: string
+              - name: href
+                type: string
+      - name: intro
+        label: Intro
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: body
+            type: text
+      - name: principles
+        label: Principles
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+          - name: description
+            type: text
+      - name: paths
+        label: Paths
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+          - name: subtitle
+            type: string
+          - name: image
+            type: image
+          - name: href
+            type: string
+          - name: description
+            type: text
+      - name: stories
+        label: Stories
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            type: string
+          - name: image
+            type: image
+          - name: href
+            type: string
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: title
+            type: string
+          - name: body
+            type: text
+          - name: links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+              - name: label
+                type: string
+              - name: href
+                type: string
+              - name: description
+                type: text
