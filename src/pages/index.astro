@@ -1,7 +1,12 @@
 ---
+import '@scania/tegel-lite/scania-variables.css';
+import '@scania/tegel-lite/global.css';
+import '@scania/tegel-lite/components.css';
+
 import { getEntry } from 'astro:content';
 
-import '../styles/global.css';
+import App from '../App';
+import '../styles.css';
 
 const page = await getEntry('pages', 'home');
 
@@ -21,125 +26,6 @@ const { data } = page;
     <title>{data.seo.title}</title>
   </head>
   <body>
-    <header class="site-header" aria-label="Site header">
-      <a class="brand" href="/" aria-label="Tegel Design System home">
-        <span class="brand__mark" aria-hidden="true">T</span>
-        <span>Tegel</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#paths">Paths</a>
-        <a href="#stories">Stories</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" style={`--hero-image: url(${data.hero.image})`}>
-        <div class="hero__media" aria-hidden="true"></div>
-        <div class="hero__content">
-          <p class="eyebrow">{data.hero.eyebrow}</p>
-          <h1>{data.hero.title}</h1>
-          <p class="lead">{data.hero.lead}</p>
-          <div class="actions">
-            <a class="button button--primary" href={data.hero.primaryAction.href}>
-              {data.hero.primaryAction.label}
-            </a>
-            <a class="button button--secondary" href={data.hero.secondaryAction.href}>
-              {data.hero.secondaryAction.label}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="intro" aria-labelledby="intro-title">
-        <div class="section-label">System direction</div>
-        <h2 id="intro-title">{data.intro.title}</h2>
-        <p>{data.intro.body}</p>
-      </section>
-
-      <section class="principles" aria-label="Design principles">
-        {data.principles.map((principle) => (
-          <article>
-            <h3>{principle.title}</h3>
-            <p>{principle.description}</p>
-          </article>
-        ))}
-      </section>
-
-
-      {data.mediaGallery && (
-        <section id="images" class="image-library" aria-labelledby="images-title">
-          <div class="section-heading">
-            <div class="section-label">CMS image library</div>
-            <div>
-              <h2 id="images-title">{data.mediaGallery.title}</h2>
-              <p>{data.mediaGallery.description}</p>
-            </div>
-          </div>
-          <div class="image-library__grid">
-            {data.mediaGallery.images.map((item) => (
-              <figure class="image-tile">
-                <img src={item.image} alt="" loading="lazy" />
-                <figcaption>
-                  <strong>{item.title}</strong>
-                  <span>{item.usage}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section id="paths" class="content-band" aria-labelledby="paths-title">
-        <div class="section-heading">
-          <div class="section-label">Guided journeys</div>
-          <h2 id="paths-title">Choose a path before choosing a component.</h2>
-        </div>
-        <div class="path-grid">
-          {data.paths.map((path) => (
-            <a class="path-card" href={path.href}>
-              <img src={path.image} alt="" loading="lazy" />
-              <div class="path-card__body">
-                <p class="path-card__subtitle">{path.subtitle}</p>
-                <h3>{path.title}</h3>
-                {path.description && <p>{path.description}</p>}
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section id="stories" class="story-strip" aria-labelledby="stories-title">
-        <div class="section-heading">
-          <div class="section-label">Experience proof</div>
-          <h2 id="stories-title">Show the detail, then reveal the system.</h2>
-        </div>
-        <div class="story-grid">
-          {data.stories.map((story) => (
-            <a class="story-card" href={story.href}>
-              <img src={story.image} alt="" loading="lazy" />
-              <span>{story.title}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" class="contact" aria-labelledby="contact-title">
-        <div class="contact__copy">
-          <div class="section-label">Contact</div>
-          <h2 id="contact-title">{data.contact.title}</h2>
-          <p>{data.contact.body}</p>
-        </div>
-        <div class="contact__links">
-          {data.contact.links.map((link) => (
-            <a class="contact-card" href={link.href}>
-              <h3>{link.title}</h3>
-              <p>{link.description}</p>
-              <span>{link.label}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    </main>
+    <App client:load content={data} />
   </body>
 </html>

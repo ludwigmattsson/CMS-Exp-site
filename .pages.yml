@@ -1,3 +1,4 @@
+
 media:
   - name: images
     label: Page images
@@ -19,40 +20,8 @@ content:
         type: string
         required: true
         description: Page language code, for example "en" or "sv".
-      - name: mediaGallery
-        label: 01. Image library - all page images
-        type: object
-        description: Quick overview of every image used on this page. Open each item to preview or replace the image.
-        fields:
-          - name: title
-            label: Section title
-            type: string
-          - name: description
-            label: Help text
-            type: text
-          - name: images
-            label: Images
-            type: object
-            list:
-              collapsible:
-                collapsed: false
-                summary: "{title} - {usage}"
-            fields:
-              - name: title
-                label: Image name
-                type: string
-              - name: usage
-                label: Used for
-                type: string
-              - name: image
-                label: Image file
-                type: image
-                options:
-                  media: images
-                  path: public/media
-                  extensions: [jpg, jpeg, png, webp]
       - name: seo
-        label: 02. SEO and browser title
+        label: 01. SEO and browser title
         type: object
         description: Search result and browser tab text.
         fields:
@@ -65,9 +34,9 @@ content:
             type: text
             required: true
       - name: hero
-        label: 03. Hero section
+        label: 02. Hero section
         type: object
-        description: First screen content: headline, lead text, hero image, and buttons.
+        description: Original exp site hero content. Image field controls the video poster image.
         fields:
           - name: eyebrow
             label: Eyebrow
@@ -81,7 +50,7 @@ content:
             type: text
             required: true
           - name: image
-            label: Hero background image
+            label: Hero poster image
             type: image
             required: true
             options:
@@ -109,9 +78,9 @@ content:
                 label: Button URL
                 type: string
       - name: intro
-        label: 04. Intro section
+        label: 03. Intro section
         type: object
-        description: The short strategy statement below the hero.
+        description: Original intro block below the hero.
         fields:
           - name: title
             label: Section headline
@@ -120,9 +89,9 @@ content:
             label: Section text
             type: text
       - name: principles
-        label: 05. Principle cards
+        label: 04. Principle cards
         type: object
-        description: Three short cards that explain the direction.
+        description: Original three cards in the intro section.
         list:
           collapsible:
             collapsed: true
@@ -134,10 +103,32 @@ content:
           - name: description
             label: Card text
             type: text
-      - name: paths
-        label: 06. Path cards
+      - name: stories
+        label: 05. Story strip images
         type: object
-        description: Main navigation cards with one image each.
+        description: Original story strip. Changing an image here updates the public story image.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Story title
+            type: string
+          - name: image
+            label: Story image
+            type: image
+            options:
+              media: images
+              path: public/media
+              extensions: [jpg, jpeg, png, webp]
+          - name: href
+            label: Target URL
+            type: string
+      - name: paths
+        label: 06. Path card images and links
+        type: object
+        description: Original path cards. Changing an image here updates the public card image.
         list:
           collapsible:
             collapsed: true
@@ -162,32 +153,10 @@ content:
           - name: description
             label: Card text
             type: text
-      - name: stories
-        label: 07. Story cards
-        type: object
-        description: Editorial image cards in the dark story section.
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Story title
-            type: string
-          - name: image
-            label: Story image
-            type: image
-            options:
-              media: images
-              path: public/media
-              extensions: [jpg, jpeg, png, webp]
-          - name: href
-            label: Target URL
-            type: string
       - name: contact
-        label: 08. Contact section
+        label: 07. Contact section
         type: object
-        description: Final section with contact cards.
+        description: Original contact section.
         fields:
           - name: title
             label: Section headline

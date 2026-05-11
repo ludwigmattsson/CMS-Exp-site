@@ -1,3 +1,4 @@
+
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
@@ -13,12 +14,6 @@ const imageLinkSchema = z.object({
   image: z.string(),
   href: z.string(),
   description: z.string().optional(),
-});
-
-const mediaGalleryImageSchema = z.object({
-  title: z.string(),
-  usage: z.string(),
-  image: z.string(),
 });
 
 const pages = defineCollection({
@@ -37,13 +32,6 @@ const pages = defineCollection({
       primaryAction: linkSchema,
       secondaryAction: linkSchema,
     }),
-    mediaGallery: z
-      .object({
-        title: z.string(),
-        description: z.string(),
-        images: z.array(mediaGalleryImageSchema),
-      })
-      .optional(),
     intro: z.object({
       title: z.string(),
       body: z.string(),

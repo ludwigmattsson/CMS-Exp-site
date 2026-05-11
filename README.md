@@ -1,65 +1,44 @@
-# Tegel Astro CMS Site
+# CMS Exp Site
 
-This is a separate Astro + Pages CMS version of the Tegel landing page concept. It does not modify the existing `exp site` React/Vite app.
+Astro + Pages CMS wrapper for the original `exp site` React/Tegel package.
 
-## What is CMS-managed
+The public design is intentionally preserved from `exp site`. Pages CMS only edits the data used by that design:
 
-- Page SEO
-- Hero copy, buttons, and image
-- Intro copy
+- Hero title, lead, poster image, and buttons
+- Intro title and body
 - Principle cards
-- Path cards
-- Story cards
-- Contact cards
-- Media under `public/media`
+- Path card text, links, and images
+- Story card text, links, and images
+- Contact section text and links
 
-The editable content lives in:
+CMS content:
 
 ```txt
 src/content/pages/home.json
 ```
 
-Pages CMS reads its editor configuration from:
+Pages CMS configuration:
 
 ```txt
 .pages.yml
 ```
 
-## Run locally
+Astro renders the original React app through:
 
-Install dependencies, then start Astro:
+```txt
+src/pages/index.astro
+src/App.tsx
+```
+
+Run locally after installing dependencies:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Build for deployment:
+Build:
 
 ```sh
 npm run build
 ```
-
-## CMS setup
-
-1. Push this folder as its own GitHub repository, or move these files to the root of the repository you want Pages CMS to edit.
-2. Connect the repository in Pages CMS.
-3. Pages CMS will read `.pages.yml` from the repository root and expose the home page fields.
-
-Astro's content collection schema is in `src/content.config.ts`, so invalid CMS data fails during build instead of silently shipping broken content.
-
-## Pages CMS editing structure
-
-The Pages CMS home editor is structured in numbered sections:
-
-1. Image library - previews every page image in one place.
-2. SEO and browser title.
-3. Hero section.
-4. Intro section.
-5. Principle cards.
-6. Path cards.
-7. Story cards.
-8. Contact section.
-
-The image library is intended as a quick visual overview. The actual page content still uses the image fields inside Hero, Path cards, and Story cards.
-

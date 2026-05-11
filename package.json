@@ -1,5 +1,5 @@
 {
-  "name": "tegel-astro-cms-site",
+  "name": "cms-exp-site",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -10,9 +10,15 @@
     "sync": "astro sync"
   },
   "dependencies": {
-    "astro": "^5.13.5"
+    "@astrojs/react": "^4.3.0",
+    "@scania/tegel-lite": "^0.1.0-beta.5",
+    "astro": "^5.13.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "typescript": "^5.9.3"
   }
 }
