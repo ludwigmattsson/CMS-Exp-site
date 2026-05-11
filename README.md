@@ -49,13 +49,9 @@ Do not edit `.jpg` or `.png` files in GitHub. They are binary files, so GitHub c
 
 Use this flow instead:
 
-1. Upload the new image in Pages CMS Media, or GitHub `Add file -> Upload files`, under `public/media`.
-2. In Pages CMS, open `Media library`.
-3. Add or update a media item:
-   - `Image name`: a human-readable name, for example `New hero image`.
-   - `Used for`: where the image is intended to be used.
-   - `Image path or URL`: `/media/your-file-name.jpg`.
-4. Open `Home page`.
-5. In `Hero`, `Story strip images`, or `Path card images and links`, choose the media item in the image reference field.
+1. Open `Home page` in Pages CMS.
+2. Open the section you want to edit: `Hero`, `Story strip images`, or `Path card images and links`.
+3. Use the image field to select an existing image from `public/media`, or upload a new one.
+4. Save the page.
 
-The public site renders the selected `/media/...` path directly.
+The public site renders the selected `/media/...` path directly, so the visual design stays unchanged.

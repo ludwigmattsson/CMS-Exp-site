@@ -6,37 +6,16 @@ media:
   categories: [image]
   rename: safe
 
-content:
-  - name: media-assets
-    label: Media library
-    type: collection
-    path: src/content/media-assets
-    format: json
-    filename: "{title}.json"
-    view:
-      primary: title
-      fields: [usage, image, preview]
-    fields:
-      - name: title
-        label: Image name
-        type: string
-        required: true
-        description: Human-readable name shown in Home image pickers.
-      - name: usage
-        label: Used for
-        type: string
-        required: true
-        description: Example: Hero poster, Path card, Story strip.
-      - name: image
-        label: Image path or URL
-        type: string
-        required: true
-        description: Use /media/filename.jpg for uploaded files in public/media, or paste a full external image URL.
-      - name: preview
-        label: Preview URL
-        type: string
-        description: Optional. Used only so Pages can show thumbnails in Home image pickers. For /media images, use https://raw.githubusercontent.com/ludwigmattsson/CMS-Exp-site/main/public/media/filename.jpg.
+components:
+  siteImage:
+    type: image
+    options:
+      path: public/media
+      extensions: [jpg, jpeg, png, webp]
+      categories: [image]
+      rename: safe
 
+content:
   - name: home
     label: Home page
     type: file
@@ -79,15 +58,9 @@ content:
             required: true
           - name: image
             label: Hero poster image
-            type: reference
+            component: siteImage
             required: true
-            description: Pick from Media library. To add a new image, upload it under Media, create a Media library item, then select it here.
-            options:
-              collection: media-assets
-              search: title,usage,image
-              value: "{image}"
-              label: "{title} - {usage}"
-              image: "{preview}"
+            description: Select or upload an image from public/media. The saved value stays /media/filename.ext.
           - name: primaryAction
             label: Primary button
             type: object
@@ -141,21 +114,16 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{title}"
+            summary: "{title} - {image}"
         fields:
           - name: title
             label: Story title
             type: string
           - name: image
             label: Story image
-            type: reference
-            description: Pick from Media library. The selected image is rendered in this story card.
-            options:
-              collection: media-assets
-              search: title,usage,image
-              value: "{image}"
-              label: "{title} - {usage}"
-              image: "{preview}"
+            component: siteImage
+            required: true
+            description: Select or upload an image from public/media. The selected image is rendered in this story card.
           - name: href
             label: Target URL
             type: string
@@ -166,7 +134,7 @@ content:
         list:
           collapsible:
             collapsed: true
-            summary: "{title} - {subtitle}"
+            summary: "{title} - {subtitle} - {image}"
         fields:
           - name: title
             label: Card title
@@ -176,14 +144,9 @@ content:
             type: string
           - name: image
             label: Card image
-            type: reference
-            description: Pick from Media library. The selected image is rendered in this path card.
-            options:
-              collection: media-assets
-              search: title,usage,image
-              value: "{image}"
-              label: "{title} - {usage}"
-              image: "{preview}"
+            component: siteImage
+            required: true
+            description: Select or upload an image from public/media. The selected image is rendered in this path card.
           - name: href
             label: Target URL
             type: string

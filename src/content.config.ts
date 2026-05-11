@@ -59,14 +59,4 @@ const pages = defineCollection({
   }),
 });
 
-const mediaAssets = defineCollection({
-  loader: glob({ pattern: '*.json', base: './src/content/media-assets' }),
-  schema: z.object({
-    title: z.string(),
-    usage: z.string(),
-    image: z.string(),
-    preview: z.string().optional(),
-  }),
-});
-
-export const collections = { pages, mediaAssets };
+export const collections = { pages };
