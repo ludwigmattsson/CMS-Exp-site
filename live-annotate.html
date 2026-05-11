@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A managed Astro version of the Tegel Design System home page concept."
+    />
+    <title>Tegel Design System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@scania/tegel-lite@0.1.0-beta.5/dist/scania-variables.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@scania/tegel-lite@0.1.0-beta.5/dist/global.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@scania/tegel-lite@0.1.0-beta.5/dist/components.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="scania tl-mode-dark" id="site">
+      <header class="tl-header app-header">
+        <nav class="tl-header__nav" aria-label="Primary">
+          <ul class="tl-header__list">
+            <li class="tl-header__title">
+              <h4 class="tl-header__title-text">Tegel Design System</h4>
+            </li>
+            <li class="tl-header__middle-spacer"></li>
+            <li class="tl-header__dropdown app-header__search-dropdown" id="header-search">
+              <button
+                type="button"
+                class="tl-header__dropdown-wrapper app-header__search-trigger"
+                id="header-search-trigger"
+                aria-label="Open Tegel search"
+                aria-expanded="false"
+                aria-haspopup="dialog"
+                aria-controls="site-search-dialog"
+              >
+                <span class="tl-icon tl-icon--search tl-icon--20" aria-hidden="true"></span>
+              </button>
+              <div
+                class="site-search__panel tl-header__dropdown-menu"
+                id="site-search-dialog"
+                role="dialog"
+                aria-label="Tegel search panel"
+              >
+                <div class="site-search__form" role="search">
+                  <div class="tl-text-field tl-text-field--primary tl-text-field--lg">
+                    <input
+                      class="tl-text-field__input"
+                      id="site-search-input"
+                      type="text"
+                      aria-label="Search Tegel documentation"
+                      placeholder="Search components, tokens, typography..."
+                    />
+                    <span
+                      class="tl-icon tl-icon--search tl-icon--20 tl-text-field__prefix--icon"
+                      aria-hidden="true"
+                    ></span>
+                  </div>
+                  <button type="button" class="site-search__close" aria-label="Close search" id="close-search">
+                    <span class="tl-icon tl-icon--cross tl-icon--20" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="site-search__meta" aria-live="polite" id="header-search-meta">
+                  Popular Tegel documentation
+                </div>
+                <ul class="site-search__results" id="header-search-results"></ul>
+                <div class="site-search__empty" id="header-search-empty" hidden>
+                  No Tegel pages matched that search. Try a component name, token, or pattern.
+                </div>
+              </div>
+            </li>
+            <li class="tl-header__item app-header__mode-item">
+              <div class="tl-toggle app-header__mode-toggle">
+                <label for="mode-toggle">
+                  <input id="mode-toggle" class="tl-toggle__input" type="checkbox" checked />
+                  <span class="tl-toggle__label">Dark mode</span>
+                </label>
+              </div>
+            </li>
+            <li class="tl-header__item">
+              <button type="button" class="tl-header__item-wrapper" data-nav="hero" aria-label="Tegel home">
+                <div class="tl-header__brand"></div>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="hero" class="hero-section">
+          <video
+            class="hero-section__image"
+            poster="public/media/experience-vision-pro.png"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+          >
+            <source
+              src="https://cdn.sanity.io/files/l19l5hti/experience-hub-production/f2f1bad8e80247be08e7c75cb9340a3158ce0788.mp4"
+              type="video/mp4"
+              media="(max-width: 768px)"
+            />
+            <source
+              src="https://cdn.sanity.io/files/l19l5hti/experience-hub-production/89da94832c9bd22d615d8e3060ab40a699077f81.mp4"
+              type="video/mp4"
+              media="(min-width: 769px)"
+            />
+          </video>
+          <div class="hero-section__overlay"></div>
+          <div class="hero-section__content">
+            <h1>Tegel Design System</h1>
+            <p>
+              A faster, CMS-managed Astro site for Scania's modular system for digital products
+              and services.
+            </p>
+            <div class="hero-section__actions">
+              <a
+                class="tl-button tl-button--secondary tl-button--sm hero-section__button-link"
+                href="https://tegel.scania.com/foundations/design-tokens"
+              >
+                For designers
+              </a>
+              <a
+                class="tl-button tl-button--secondary tl-button--sm hero-section__button-link"
+                href="https://tegel.scania.com/development/getting-started-development"
+              >
+                For developers
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="principles" class="content-section content-section--intro">
+          <div class="section-heading">
+            <h2>Built for premium digital experiences.</h2>
+          </div>
+          <p class="intro-grid__lead">
+            Tegel becomes less of a component catalogue and more of a guided system: start from the
+            Scania experience, choose the right component, then ship the implementation with the
+            same precision.
+          </p>
+          <div class="principle-grid">
+            <div class="tl-card tl-card--primary tl-card--stretch principle-card">
+              <div class="tl-card__body">
+                <div class="tl-card__header">
+                  <div class="tl-card__headings">
+                    <span class="tl-card__title">Precision down to the grid</span>
+                  </div>
+                </div>
+                <div class="tl-card__content">
+                  <p>
+                    Foundation guidance is moved up front, with tokens, typography, and spacing
+                    treated as the start of every decision.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="tl-card tl-card--primary tl-card--stretch principle-card">
+              <div class="tl-card__body">
+                <div class="tl-card__header">
+                  <div class="tl-card__headings">
+                    <span class="tl-card__title">Components with context</span>
+                  </div>
+                </div>
+                <div class="tl-card__content">
+                  <p>
+                    Each route starts from the job a team is trying to do, then points to the right
+                    Tegel component and implementation pattern.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="tl-card tl-card--primary tl-card--stretch principle-card">
+              <div class="tl-card__body">
+                <div class="tl-card__header">
+                  <div class="tl-card__headings">
+                    <span class="tl-card__title">Delivery without drift</span>
+                  </div>
+                </div>
+                <div class="tl-card__content">
+                  <p>
+                    Design, code, and quality standards are kept together so teams can move from
+                    Figma to implementation with less handoff loss.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="story-strip" aria-labelledby="story-title">
+          <div class="story-strip__heading">
+            <h2 id="story-title">Show the detail, then reveal the system.</h2>
+          </div>
+          <div class="story-strip__rail">
+            <a
+              class="story-card"
+              href="https://tegel.scania.com/foundations/design-tokens"
+              aria-label="Open Show the detail on Tegel"
+            >
+              <img src="public/media/scania-cap-detail.png" alt="" />
+              <span class="story-card__label">Show the detail</span>
+            </a>
+            <a
+              class="story-card"
+              href="https://tegel.scania.com/guidance/accessibility"
+              aria-label="Open Reveal the system on Tegel"
+            >
+              <img src="public/media/scania-launch-event.png" alt="" />
+              <span class="story-card__label">Reveal the system</span>
+            </a>
+            <a
+              class="story-card"
+              href="https://tegel.scania.com/development/getting-started-development"
+              aria-label="Open Move into code on Tegel"
+            >
+              <img src="public/media/screenshot-2026-05-05-at-202836.png" alt="" />
+              <span class="story-card__label">Move into code</span>
+            </a>
+          </div>
+        </section>
+
+        <section id="paths" class="content-section">
+          <div class="section-heading">
+            <h2>Choose a path before choosing a component.</h2>
+          </div>
+          <div class="path-layout">
+            <div class="path-grid">
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch tl-card--image-above-header path-card"
+                aria-label="Open Foundation on Tegel"
+                data-href="https://tegel.scania.com/foundations/design-tokens"
+              >
+                <img class="tl-card__image" src="public/media/boarding-step.jpg" alt="" />
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Foundation</span>
+                      <span class="tl-card__subtitle">Tokens, type, grid</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>Start with the visual and behavioral foundations before choosing components.</p>
+                  </div>
+                </div>
+              </button>
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch tl-card--image-above-header path-card"
+                aria-label="Open Components on Tegel"
+                data-href="https://tegel.scania.com/components"
+              >
+                <img class="tl-card__image" src="public/media/tegel-screens.jpg" alt="" />
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Components</span>
+                      <span class="tl-card__subtitle">Figma to npm</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Find the Figma component, then check its npm class or prop contract before
+                      implementing.
+                    </p>
+                  </div>
+                </div>
+              </button>
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch tl-card--image-above-header path-card"
+                aria-label="Open Patterns on Tegel"
+                data-href="https://tegel.scania.com/guidance/navigation"
+              >
+                <img class="tl-card__image" src="public/media/smart-dash.jpg" alt="" />
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Patterns</span>
+                      <span class="tl-card__subtitle">Reusable decisions</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Guided patterns show which component composition fits a workflow and why.
+                    </p>
+                  </div>
+                </div>
+              </button>
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch tl-card--image-above-header path-card"
+                aria-label="Open Digital quality on Tegel"
+                data-href="https://tegel.scania.com/guidance/accessibility"
+              >
+                <img class="tl-card__image" src="public/media/driver-app.jpg" alt="" />
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Digital quality</span>
+                      <span class="tl-card__subtitle">Ship with confidence</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Accessibility and engineering checks become visible parts of the design
+                      system journey.
+                    </p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="resources" class="content-section content-section--layered resource-search-section">
+          <div class="section-heading">
+            <h2>Search</h2>
+          </div>
+          <div
+            class="tl-card tl-card--primary tl-card--stretch resource-search"
+            role="region"
+            aria-label="Tegel resource search"
+          >
+            <div class="tl-card__body">
+              <div class="tl-card__content">
+                <div class="site-search__panel site-search__panel--embedded">
+                  <div class="site-search__form" role="search">
+                    <div class="tl-text-field tl-text-field--primary tl-text-field--lg">
+                      <input
+                        class="tl-text-field__input"
+                        id="resource-search"
+                        type="text"
+                        aria-label="Search Tegel resources"
+                        placeholder="Search components, tokens, typography..."
+                      />
+                      <span
+                        class="tl-icon tl-icon--search tl-icon--20 tl-text-field__prefix--icon"
+                        aria-hidden="true"
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="site-search__meta" aria-live="polite" id="resource-search-meta">
+                    Popular Tegel documentation
+                  </div>
+                  <ul class="site-search__results" id="resource-search-results"></ul>
+                  <div class="site-search__empty" id="resource-search-empty" hidden>
+                    No Tegel pages matched that search. Try a component name, token, or pattern.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="patterns" class="content-section contact-section">
+          <div class="contact-section__content">
+            <h2>Choose the right communication channel.</h2>
+            <p>
+              Use the channel that matches the work: quick team alignment, scoped follow-up, or
+              implementation issues that need tracking.
+            </p>
+            <div class="contact-link-grid" aria-label="Useful Tegel links">
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch contact-link-card"
+                data-href="https://teams.microsoft.com/"
+              >
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Teams channel</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Use Teams for quick alignment, design reviews, and questions that need a
+                      shared thread.
+                    </p>
+                  </div>
+                  <div class="tl-card__bottom-row">
+                    <div class="tl-card__actions">
+                      <span class="contact-link-card__cta">Open Teams</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch contact-link-card"
+                data-href="mailto:corporate.digital.experience@scania.com?subject=Tegel%20Design%20System%20request"
+              >
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">Email the Tegel team</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Use email for scoped requests, onboarding support, and decisions that need a
+                      clear owner.
+                    </p>
+                  </div>
+                  <div class="tl-card__bottom-row">
+                    <div class="tl-card__actions">
+                      <span class="contact-link-card__cta">Write email</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button
+                type="button"
+                class="tl-card tl-card--primary tl-card--clickable tl-card--stretch contact-link-card"
+                data-href="https://github.com/scania-digital-design-system/tegel/issues"
+              >
+                <div class="tl-card__body">
+                  <div class="tl-card__header">
+                    <div class="tl-card__headings">
+                      <span class="tl-card__title">GitHub issues</span>
+                    </div>
+                  </div>
+                  <div class="tl-card__content">
+                    <p>
+                      Report component defects, documentation gaps, and implementation problems.
+                    </p>
+                  </div>
+                  <div class="tl-card__bottom-row">
+                    <div class="tl-card__actions">
+                      <span class="contact-link-card__cta">Open issues</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="tl-footer tl-footer--primary">
+        <div class="tl-footer__top">
+          <div class="tl-footer__group" role="list">
+            <button class="tl-footer__top-title" type="button" aria-expanded="false">Foundation</button>
+            <a href="https://tegel.scania.com/foundations/design-tokens" class="tl-footer__link">
+              Design tokens
+            </a>
+            <a href="https://tegel.scania.com/foundations/typography" class="tl-footer__link">
+              Typography
+            </a>
+            <a href="https://tegel.scania.com/guidance/accessibility" class="tl-footer__link">
+              Accessibility
+            </a>
+          </div>
+          <div class="tl-footer__group" role="list">
+            <button class="tl-footer__top-title" type="button" aria-expanded="false">Activation</button>
+            <a href="https://tegel.scania.com/components" class="tl-footer__link">Components</a>
+            <a href="#patterns" class="tl-footer__link">Contact</a>
+            <a href="https://tegel.scania.com/resources/release-notes" class="tl-footer__link">
+              Release notes
+            </a>
+          </div>
+          <div class="tl-footer__group" role="list">
+            <button class="tl-footer__top-title" type="button" aria-expanded="false">Scania</button>
+            <a href="https://experience.scania.com/" class="tl-footer__link">Experience hub</a>
+            <a href="https://tegel.scania.com/home" class="tl-footer__link">Tegel documentation</a>
+          </div>
+        </div>
+
+        <div class="tl-footer__main">
+          <div class="tl-footer__main-top">
+            <div class="tl-footer__main-top--start">
+              <div class="tl-footer__group" role="list">
+                <a
+                  href="https://www.scania.com/group/en/home/admin/misc/privacy-statement.html"
+                  class="tl-footer__link"
+                >
+                  Privacy Statement
+                </a>
+                <a
+                  href="https://www.scania.com/group/en/home/admin/misc/cookies.html"
+                  class="tl-footer__link"
+                >
+                  About Cookies
+                </a>
+                <a
+                  href="https://www.scania.com/group/en/home/admin/misc/legal-notice.html"
+                  class="tl-footer__link"
+                >
+                  Legal Notice
+                </a>
+                <a href="https://www.scania.com/" class="tl-footer__link">Scania.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="tl-footer__main-bottom">
+            <small class="tl-footer__copyright">
+              © Copyright 2026 Scania CV AB. All rights reserved.
+            </small>
+            <p class="tl-footer__brand">Scania</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const tegelBaseUrl = 'https://tegel.scania.com';
+
+      const componentItems = [
+        ['Accordion', 'Disclosure for grouped content.', ['collapse', 'expand', 'disclosure', 'content']],
+        ['Badge', 'Small status and count indicator.', ['status', 'counter', 'label', 'notification']],
+        ['Banner', 'Page-level feedback and contextual messages.', ['feedback', 'alert', 'information', 'warning']],
+        ['Block', 'Structured content surface for grouped UI.', ['surface', 'container', 'content']],
+        ['Breadcrumbs', 'Hierarchy trail for deep navigation.', ['navigation', 'trail', 'hierarchy']],
+        ['Button', 'Primary action component with size, variant, icon, and disabled states.', ['action', 'cta', 'submit', 'icon button']],
+        ['Card', 'Surface for grouped content, actions, image, and metadata.', ['surface', 'content', 'tile']],
+        ['Checkbox', 'Selection control for one or multiple choices.', ['form', 'selection', 'boolean']],
+        ['Chip', 'Compact value, filter, or selection label.', ['tag', 'filter', 'selection']],
+        ['Datetime', 'Date and time input component.', ['date', 'time', 'calendar', 'form']],
+        ['Divider', 'Visual separator between sections or groups.', ['separator', 'rule', 'layout']],
+        ['Dropdown', 'Select or menu control for option sets.', ['select', 'option', 'menu', 'form']],
+        ['Footer', 'Global footer navigation and legal information.', ['navigation', 'legal', 'links']],
+        ['Header', 'Global app shell header with brand, title, and navigation items.', ['navigation', 'app shell', 'brand', 'top bar']],
+        ['Icon', 'Scania and TRATON icon rendering.', ['symbol', 'pictogram', 'asset']],
+        ['Link', 'Navigation and standalone text links.', ['anchor', 'navigation', 'external']],
+        ['Message', 'Inline contextual feedback message.', ['feedback', 'status', 'information', 'error']],
+        ['Modal', 'Blocking dialog for focused decisions and forms.', ['dialog', 'overlay', 'focus trap']],
+        ['Popover canvas', 'Anchored canvas for richer contextual content.', ['popover', 'overlay', 'contextual']],
+        ['Popover menu', 'Anchored command and menu list.', ['menu', 'popover', 'actions']],
+        ['Radio button', 'Single-choice selection control.', ['form', 'selection', 'choice']],
+        ['Side menu', 'Persistent or temporary side navigation.', ['navigation', 'drawer', 'menu']],
+        ['Slider', 'Range input for numeric values.', ['form', 'range', 'input']],
+        ['Spinner', 'Loading indicator for pending states.', ['loading', 'progress', 'feedback']],
+        ['Stepper', 'Progressive flow and step navigation.', ['steps', 'wizard', 'progress']],
+        ['Table', 'Structured data table with sorting, filtering, and row patterns.', ['data', 'grid', 'sorting', 'filtering']],
+        ['Tabs', 'Tabbed navigation between related views.', ['navigation', 'sections', 'folder tabs', 'inline tabs']],
+        ['Text field', 'Single-line text input with labels, helper text, prefix, and suffix.', ['input', 'form', 'search', 'validation']],
+        ['Textarea', 'Multi-line text input for longer content.', ['input', 'form', 'multi-line']],
+        ['Toast', 'Transient non-blocking feedback notification.', ['notification', 'feedback', 'status']],
+        ['Toggle', 'Binary on/off control.', ['switch', 'boolean', 'mode']],
+        ['Tooltip', 'Short contextual help on hover or focus.', ['help', 'hint', 'description']],
+      ].map(([title, description, keywords]) => ({
+        title,
+        section: 'Components',
+        description,
+        url: `${tegelBaseUrl}/components/${title.toLowerCase().replace(/\s+/g, '-')}`,
+        keywords,
+      }));
+
+      const tegelSearchIndex = [
+        {
+          title: 'Tegel Design System',
+          section: 'Home',
+          description: "Scania's modular system for digital products and services.",
+          url: `${tegelBaseUrl}/home`,
+          keywords: ['home', 'overview', 'design system', 'scania', 'tegel'],
+        },
+        {
+          title: 'Getting started development',
+          section: 'Development',
+          description: 'Install Tegel, register web components, import styles, and start building.',
+          url: `${tegelBaseUrl}/development/getting-started-development`,
+          keywords: ['install', 'npm', 'react', 'angular', 'html', 'web components'],
+        },
+        {
+          title: 'Browser support',
+          section: 'Development',
+          description: 'Supported browsers and compatibility expectations for Tegel implementations.',
+          url: `${tegelBaseUrl}/development/browser-support`,
+          keywords: ['browser', 'support', 'compatibility', 'chrome', 'edge', 'safari'],
+        },
+        {
+          title: 'React implementation',
+          section: 'Development',
+          description: 'Use Tegel in React with custom element registration and package styles.',
+          url: `${tegelBaseUrl}/development/getting-started-development#react`,
+          keywords: ['react', 'typescript', '@scania/tegel-react', 'jsx'],
+        },
+        {
+          title: 'Angular implementation',
+          section: 'Development',
+          description: 'Use Tegel in Angular with schemas and custom element registration.',
+          url: `${tegelBaseUrl}/development/getting-started-development#angular`,
+          keywords: ['angular', 'custom elements', 'schemas'],
+        },
+        {
+          title: 'Static assets',
+          section: 'Development',
+          description: 'Fonts, logos, and assets needed when CDN access is not available.',
+          url: `${tegelBaseUrl}/development/static-assets`,
+          keywords: ['assets', 'fonts', 'logos', 'cdn', 'offline'],
+        },
+        {
+          title: 'Design tokens',
+          section: 'Foundations',
+          description: 'Semantic tokens for color, typography, spacing, radius, motion, and component styling.',
+          url: `${tegelBaseUrl}/foundations/design-tokens`,
+          keywords: ['tokens', 'variables', 'semantic', 'primitive'],
+        },
+        {
+          title: 'Color',
+          section: 'Foundations',
+          description: 'Scania and TRATON color roles for brand, foreground, background, and state usage.',
+          url: `${tegelBaseUrl}/foundations/color`,
+          keywords: ['color', 'palette', 'brand', 'light mode', 'dark mode'],
+        },
+        {
+          title: 'Typography',
+          section: 'Foundations',
+          description: 'Scania Sans and TRATON Type styles for headings, body, labels, and components.',
+          url: `${tegelBaseUrl}/foundations/typography`,
+          keywords: ['type', 'font', 'headline', 'paragraph', 'body'],
+        },
+        {
+          title: 'Spacing',
+          section: 'Foundations',
+          description: 'Spacing units and layout rhythm for consistent component composition.',
+          url: `${tegelBaseUrl}/foundations/spacing`,
+          keywords: ['space', 'padding', 'margin', 'gap', '8px'],
+        },
+        {
+          title: 'Grid',
+          section: 'Foundations',
+          description: 'Responsive grid rules and layout behavior for Scania digital products.',
+          url: `${tegelBaseUrl}/foundations/grid`,
+          keywords: ['layout', 'columns', 'responsive', 'breakpoints'],
+        },
+        {
+          title: 'Icons',
+          section: 'Foundations',
+          description: 'Available Scania and TRATON icons, sizes, and usage rules.',
+          url: `${tegelBaseUrl}/foundations/icons`,
+          keywords: ['icon', 'symbol', 'pictogram', 'asset'],
+        },
+        {
+          title: 'Logotype',
+          section: 'Foundations',
+          description: 'Brand logotype assets and placement guidance.',
+          url: `${tegelBaseUrl}/foundations/logotype`,
+          keywords: ['logo', 'brand', 'wordmark', 'symbol'],
+        },
+        {
+          title: 'Motion',
+          section: 'Foundations',
+          description: 'Motion tokens and interaction timing for consistent transitions.',
+          url: `${tegelBaseUrl}/foundations/motion`,
+          keywords: ['animation', 'transition', 'duration', 'easing'],
+        },
+        {
+          title: 'Accessibility',
+          section: 'Guidance',
+          description: 'Keyboard, focus, contrast, labeling, and interaction checks for Tegel interfaces.',
+          url: `${tegelBaseUrl}/guidance/accessibility`,
+          keywords: ['a11y', 'focus', 'keyboard', 'contrast', 'aria'],
+        },
+        {
+          title: 'Form patterns',
+          section: 'Guidance',
+          description: 'Labels, helper text, validation states, dropdowns, checkboxes, radio buttons, and text inputs.',
+          url: `${tegelBaseUrl}/guidance/forms`,
+          keywords: ['forms', 'validation', 'input', 'label', 'helper text'],
+        },
+        {
+          title: 'Navigation patterns',
+          section: 'Guidance',
+          description: 'Header, side menu, breadcrumbs, tabs, and stepper composition guidance.',
+          url: `${tegelBaseUrl}/guidance/navigation`,
+          keywords: ['navigation', 'header', 'side menu', 'breadcrumbs', 'tabs'],
+        },
+        {
+          title: 'Release notes',
+          section: 'Resources',
+          description: 'Tegel package changes, migration notes, and version updates.',
+          url: `${tegelBaseUrl}/resources/release-notes`,
+          keywords: ['release', 'version', 'migration', 'changelog'],
+        },
+        ...componentItems,
+      ];
+
+      const defaultResourceTitles = [
+        'Tegel Design System',
+        'Getting started development',
+        'Design tokens',
+        'Typography',
+        'Button',
+        'Form patterns',
+      ];
+      const stopWords = new Set(['a', 'about', 'do', 'find', 'for', 'guidance', 'how', 'i', 'me', 'please', 'rules', 'show', 'the', 'use']);
+
+      const normalizeSearchValue = (value) =>
+        value.toLowerCase().replace(/[^a-z0-9@.-]+/g, ' ').trim();
+
+      const getDefaultResources = () =>
+        defaultResourceTitles
+          .map((title) => tegelSearchIndex.find((item) => item.title === title))
+          .filter(Boolean);
+
+      const searchTegelResources = (query) => {
+        const normalizedQuery = normalizeSearchValue(query);
+        if (!normalizedQuery) return getDefaultResources();
+        const terms = normalizedQuery.split(/\s+/).filter((term) => term && !stopWords.has(term));
+        if (!terms.length) return getDefaultResources();
+
+        return tegelSearchIndex
+          .map((item) => {
+            const title = normalizeSearchValue(item.title);
+            const section = normalizeSearchValue(item.section);
+            const description = normalizeSearchValue(item.description);
+            const keywords = item.keywords.map(normalizeSearchValue);
+            const haystack = [title, section, description, keywords.join(' ')].join(' ');
+            if (!terms.every((term) => haystack.includes(term))) return { item, score: 0 };
+            const score =
+              terms.reduce((total, term) => {
+                if (title === term) return total + 96;
+                if (title.startsWith(term)) return total + 68;
+                if (title.includes(term)) return total + 48;
+                if (keywords.some((keyword) => keyword.includes(term))) return total + 32;
+                if (section.includes(term)) return total + 18;
+                if (description.includes(term)) return total + 10;
+                return total + 1;
+              }, 0) +
+              (item.section === 'Components' ? 4 : 0) +
+              (item.section === 'Foundations' ? 3 : 0);
+            return { item, score };
+          })
+          .filter((result) => result.score > 0)
+          .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+          .map((result) => result.item);
+      };
+
+      const renderSearch = ({ input, list, meta, empty, maxResults }) => {
+        const query = input.value;
+        const results = searchTegelResources(query);
+        const visible = results.slice(0, maxResults);
+        meta.textContent = query.trim() ? `${results.length} results for "${query.trim()}"` : 'Popular Tegel documentation';
+        list.innerHTML = visible
+          .map(
+            (result) => `
+              <li class="tl-header__dropdown-menu-item site-search__result-row">
+                <a class="site-search__result" href="${result.url}" data-search-url="${result.url}">
+                  <span class="site-search__result-section">${result.section}</span>
+                  <span class="site-search__result-title">${result.title}</span>
+                  <span class="site-search__result-description">${result.description}</span>
+                  <span class="site-search__result-url">${result.url}</span>
+                </a>
+              </li>
+            `,
+          )
+          .join('');
+        list.querySelectorAll('.site-search__result-row').forEach((row) => {
+          row.addEventListener('click', (event) => {
+            const link = row.querySelector('.site-search__result');
+            if (!link) return;
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            window.location.href = link.href;
+          });
+        });
+        empty.hidden = !(query.trim() && visible.length === 0);
+      };
+
+      const setupSearch = (inputId, listId, metaId, emptyId, maxResults) => {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        const meta = document.getElementById(metaId);
+        const empty = document.getElementById(emptyId);
+        const config = { input, list, meta, empty, maxResults };
+        input.addEventListener('input', () => renderSearch(config));
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') {
+            const first = searchTegelResources(input.value)[0];
+            if (first) window.location.href = first.url;
+          }
+        });
+        renderSearch(config);
+      };
+
+      setupSearch('site-search-input', 'header-search-results', 'header-search-meta', 'header-search-empty', 8);
+      setupSearch('resource-search', 'resource-search-results', 'resource-search-meta', 'resource-search-empty', 6);
+
+      const site = document.getElementById('site');
+      const modeToggle = document.getElementById('mode-toggle');
+      modeToggle.addEventListener('change', () => {
+        site.classList.toggle('tl-mode-dark', modeToggle.checked);
+        site.classList.toggle('tl-mode-light', !modeToggle.checked);
+        document.querySelector('.tl-toggle__label').textContent = modeToggle.checked ? 'Dark mode' : 'Light mode';
+      });
+
+      document.querySelectorAll('[data-nav]').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.getElementById(button.dataset.nav)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      const searchWrapper = document.getElementById('header-search');
+      const searchTrigger = document.getElementById('header-search-trigger');
+      const searchPanel = document.getElementById('site-search-dialog');
+      const searchInput = document.getElementById('site-search-input');
+      const setSearchOpen = (isOpen) => {
+        searchTrigger.classList.toggle('tl-header__dropdown-wrapper--open', isOpen);
+        searchPanel.classList.toggle('tl-header__dropdown-menu--open', isOpen);
+        searchTrigger.setAttribute('aria-expanded', String(isOpen));
+        searchTrigger.setAttribute('aria-label', isOpen ? 'Close Tegel search' : 'Open Tegel search');
+        if (isOpen) {
+          searchInput.value = '';
+          searchInput.dispatchEvent(new Event('input'));
+          searchInput.focus();
+        }
+      };
+      searchTrigger.addEventListener('click', () => {
+        setSearchOpen(!searchPanel.classList.contains('tl-header__dropdown-menu--open'));
+      });
+      document.getElementById('close-search').addEventListener('click', () => setSearchOpen(false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setSearchOpen(false);
+      });
+      document.addEventListener('pointerdown', (event) => {
+        if (!searchWrapper.contains(event.target)) setSearchOpen(false);
+      });
+
+      document.querySelectorAll('[data-href]').forEach((card) => {
+        card.addEventListener('click', () => {
+          const href = card.dataset.href;
+          if (href.startsWith('mailto:')) {
+            window.location.href = href;
+          } else {
+            window.open(href, '_blank', 'noopener,noreferrer');
+          }
+        });
+      });
+
+      document.querySelectorAll('.tl-footer__top-title').forEach((button) => {
+        button.addEventListener('click', () => {
+          const group = button.closest('.tl-footer__group');
+          const isExpanded = group?.classList.toggle('tl-footer__group--expanded') ?? false;
+          button.setAttribute('aria-expanded', String(isExpanded));
+        });
+      });
+
+    </script>
+  </body>
+</html>

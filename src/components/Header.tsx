@@ -6,14 +6,12 @@ import Toggle from './Toggle'
 
 interface HeaderProps {
   onNavigate: (section: string) => void
-  onOpenMenu: () => void
   isDarkMode: boolean
   onToggleMode: (checked: boolean) => void
 }
 
 export default function Header({
   onNavigate,
-  onOpenMenu,
   isDarkMode,
   onToggleMode,
 }: HeaderProps) {
@@ -56,16 +54,6 @@ export default function Header({
     <header className="tl-header app-header">
       <nav className="tl-header__nav" aria-label="Primary">
         <ul className="tl-header__list">
-          <li className="tl-header__item app-header__hamburger">
-            <button
-              type="button"
-              className="tl-header__item-wrapper"
-              onClick={onOpenMenu}
-              aria-label="Open menu"
-            >
-              <Icon name="burger" size="20" />
-            </button>
-          </li>
           <li className="tl-header__title">
             <h4 className="tl-header__title-text">Tegel Design System</h4>
           </li>
