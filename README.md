@@ -14,7 +14,7 @@ The public design is intentionally preserved from `exp site`. Pages CMS only edi
 CMS content:
 
 ```txt
-src/content/pages/home.json
+src/content/pages/home.json 
 ```
 
 Pages CMS configuration:
