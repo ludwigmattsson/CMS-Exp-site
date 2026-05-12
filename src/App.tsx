@@ -69,6 +69,16 @@ const experienceHeroVideoDesktop =
 const experienceHeroVideoMobile =
   'https://cdn.sanity.io/files/l19l5hti/experience-hub-production/f2f1bad8e80247be08e7c75cb9340a3158ce0788.mp4'
 
+const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '')
+
+const assetPath = (path: string) => {
+  if (/^(?:[a-z]+:)?\/\//i.test(path) || path.startsWith('data:') || path.startsWith('#')) {
+    return path
+  }
+
+  return `${basePath}${path.startsWith('/') ? path : `/${path}`}`
+}
+
 function App({ content }: AppProps) {
   const [isDarkMode, setDarkMode] = useState(true)
   const [query, setQuery] = useState('')
@@ -132,7 +142,7 @@ function App({ content }: AppProps) {
         <section id="hero" className="hero-section">
           <video
             className="hero-section__image"
-            poster={content.hero.image}
+            poster={assetPath(content.hero.image)}
             autoPlay
             loop
             muted
@@ -197,7 +207,7 @@ function App({ content }: AppProps) {
                 href={story.href}
                 aria-label={`Open ${story.title} on Tegel`}
               >
-                <img src={story.image} alt="" />
+                <img src={assetPath(story.image)} alt="" />
                 <span className="story-card__label">{story.title}</span>
               </a>
             ))}
@@ -221,7 +231,7 @@ function App({ content }: AppProps) {
                   data-href={path.href}
                   onClick={() => openTegelPage(path.href)}
                 >
-                  <Card.Image src={path.image} alt="" />
+                  <Card.Image src={assetPath(path.image)} alt="" />
                   <Card.Body>
                     <Card.Header>
                       <Card.Headings title={path.title} subtitle={path.subtitle} />

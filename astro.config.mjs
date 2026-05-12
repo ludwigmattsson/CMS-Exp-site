@@ -3,5 +3,6 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   integrations: [react()],
-  site: 'https://example.com',
+  site: 'https://ludwigmattsson.github.io',
+  base: '/CMS-Exp-site',
 });
